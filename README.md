@@ -1,4 +1,4 @@
-## Stress Detector
+# Stress Detector
 
 [![CI Status](https://circleci.com/gh/maxmousee/Py-Stress-Detector.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/maxmousee/Py-Stress-Detector)
 
