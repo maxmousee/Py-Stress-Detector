@@ -1,4 +1,4 @@
 exclude:
-- emd\.py
-- utils\.py
-- visualization\.py
+- .*emd\.py
+- .*utils\.py
+- .*visualization\.py
