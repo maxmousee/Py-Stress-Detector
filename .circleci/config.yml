@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:2.7.15
+      - image: circleci/python:3.7
     parallelism: 4
 
     working_directory: ~/repo
@@ -30,7 +30,7 @@ jobs:
       - run:
           name: run tests for Desktop
           command: |
-            python StressDetectorDesktop.py -i rain_man_driver_8000.wav
+            python3 StressDetectorDesktop.py -i rain_man_driver_8000.wav
 
       - run:
           name: run tests for WebService

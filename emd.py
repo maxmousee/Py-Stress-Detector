@@ -481,7 +481,7 @@ class EMD(object):
                 if not stop_sift:
                     warnings.warn("EMD Warning: Amplitude too small, stopping.")
                 else:
-                    print "Force stopping EMD: amplitude too small."
+                    print('Force stopping EMD: amplitude too small.')
                 return
 
             # SIFTING LOOP:
@@ -490,9 +490,9 @@ class EMD(object):
                 if (not(self.is_mode_complex) and (self.nbit > self.maxiter / 5) and
                         self.nbit % np.floor(self.maxiter / 10) == 0 and
                         not(self.fixe) and self.nbit > 100):
-                    print "Mode " + str(self.k) + ", Iteration " + str(self.nbit)
+                    print('Mode ' + str(self.k) + ', Iteration ' + str(self.nbit))
                     im, iM, _ = extr(m)
-                    print str(np.sum(m[im] > 0)) + " minima > 0; " + str(np.sum(m[im] < 0)) + " maxima < 0."
+                    print(str(np.sum(m[im] > 0)) + ' minima > 0; ' + str(np.sum(m[im] < 0)) + ' maxima < 0.')
 
                 # Sifting
                 m = m - moyenne
