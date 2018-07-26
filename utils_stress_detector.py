@@ -46,7 +46,7 @@ def get_zero_crossings(the_emd):
 
     the_data = extract_data(the_emd, imf_count)
 
-    for i in xrange(len(the_data)-1):
+    for i in range(len(the_data)-1):
         if the_data[i] > 0 and the_data[i+1] < 0:
             count_zeros = count_zeros + 1
         elif the_data[i] < 0 and the_data[i+1] > 0:
@@ -70,18 +70,18 @@ def get_audio_file(argv):
     try:
         opts, args = getopt.getopt(argv,"hi:o:",["ifile="])
     except getopt.GetoptError:
-        print 'python StressDetectorDesktop.py -i <inputfile>'
+        print('python3 StressDetectorDesktop.py -i <inputfile>')
         sys.exit(2)
 
     for opt, arg in opts:
        if opt == '-h':
-           print 'python StressDetectorDesktop.py -i <inputfile>'
+           print('python3 StressDetectorDesktop.py -i <inputfile>')
            sys.exit()
        elif opt in ("-i", "--ifile"):
            input_file = arg
 
     if not os.path.isfile(os.getcwd() + "/" + input_file):
         # file does NOT exist
-        print "File does NOT exist, will exit"
+        print('File does NOT exist, will exit')
         sys.exit(2)
     return input_file
