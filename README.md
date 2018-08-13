@@ -4,12 +4,25 @@
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/maxmousee/Py-Stress-Detector?branch=master)](https://bettercodehub.com/)
 
+# Install dependencies
+
+Using Python 3, run "pip -r requirements.txt --user" without the quotes
+
 # WebService
 
 To run it just go to the folder and type "export FLASK_APP=StressDetectorWS.py; python3 -m flask run" without the quotes
 It will run as a http service listening to port 5000
 
 To send a test request just run "curl -H "Content-Type: application/json" --data @audiodata.json http://localhost:5000/api/isunderstress"
+
+Build docker image:
+"docker build -t py-stress-detector:latest ."
+
+Run using docker:
+"docker run --name py-stress-detector-web -d -p 5000:5000 --rm py-stress-detector:latest"
+
+Kill (all) docker images:
+"docker kill $(docker ps -q)"
 
 # Desktop
 
