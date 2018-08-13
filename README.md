@@ -19,7 +19,10 @@ Build docker image:
 "docker build -t py-stress-detector:latest ."
 
 Run using docker:
-"docker run --name py-stress-detector-web -d -p 5000:5000 --rm py-stress-detector:latest"
+"docker run -t -p 5000:5000 -d py-stress-detector:latest"
+
+Check if container is running:
+"docker ps"
 
 Kill (all) docker images:
 "docker kill $(docker ps -q)"
