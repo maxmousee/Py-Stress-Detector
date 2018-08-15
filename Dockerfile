@@ -15,4 +15,6 @@ CMD [ "python", "./StressDetectorDesktop.py", "-i", "rain_man_driver_8000.wav" ]
 
 ENV FLASK_APP StressDetectorWS.py
 
-CMD [ "python", "-m", "flask", "run"]
+ENV FLASK_ENV development
+
+CMD [ "python", "-m", "flask", "run", "--host=0.0.0.0"]
