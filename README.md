@@ -11,13 +11,8 @@ python3-pip libfreetype6-dev libfreetype6 libpng-dev pkg-config
 To do that, run:
 "sudo apt-get install -y python3-pip libfreetype6-dev libfreetype6 libpng-dev curl pkg-config"
 
-If you are using MacOS, install easy_install and pip from there:
-https://stackoverflow.com/questions/17886647/cant-install-via-pip-because-of-egg-info-error
-Download the script
-Run it:
-"python ez_setup.py"
-Install pip on Python 3
-"sudo easy_install-3.7 pip"
+If you are using MacOS, install brew run the following commands:
+"brew install freetype; brew install pkg-config; brew install libpng" 
 
 Using Python 3, run "pip -r requirements.txt --user" without the quotes
 
