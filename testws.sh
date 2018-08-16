@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 export FLASK_APP=StressDetectorWS.py;
-python3 -m flask run & sleep 5; curl -H "Content-Type: application/json" --data @audiodata.json http://localhost:5000/api/isunderstress;
+python3 -m flask run & sleep 5; curl -F "file=@rain_man_driver_8000.wav" http://localhost:5000/api/isunderstress;
 kill $!;
 cd ..;

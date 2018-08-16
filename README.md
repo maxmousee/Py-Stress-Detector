@@ -6,6 +6,11 @@
 
 # Install dependencies
 
+If you are using Ubuntu, you will need to install the following packages:
+python3-pip libfreetype6-dev libfreetype6 libpng-dev pkg-config
+To do that, run:
+"sudo apt-get install -y python3-pip libfreetype6-dev libfreetype6 libpng-dev curl pkg-config"
+
 Using Python 3, run "pip -r requirements.txt --user" without the quotes
 
 # WebService
@@ -13,7 +18,7 @@ Using Python 3, run "pip -r requirements.txt --user" without the quotes
 To run it just go to the folder and type "export FLASK_APP=StressDetectorWS.py; python3 -m flask run" without the quotes
 It will run as a http service listening to port 5000
 
-To send a test request just run "curl -H "Content-Type: application/json" --data @audiodata.json http://localhost:5000/api/isunderstress"
+To send a test request just run "curl -F "file=@rain_man_driver_8000.wav" http://localhost:5000/api/isunderstress"
 
 Build docker image:
 "docker build -t py-stress-detector:latest ."
