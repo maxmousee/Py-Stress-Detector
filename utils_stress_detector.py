@@ -16,6 +16,16 @@ def plot_data(the_data):
     plt.show()
 
 
+def get_audio_sample_rate_from_file_absolute_path(input_file):
+    rate1,dat1 = wavfile.read(input_file)
+    return rate1
+
+
+def get_audio_data_from_file_absolute_path(input_file):
+    rate1,dat1 = wavfile.read(input_file)
+    return dat1
+
+
 def get_audio_sample_rate_from_file(input_file):
     rate1,dat1 = wavfile.read(os.getcwd() + "/" + input_file)
     return rate1
