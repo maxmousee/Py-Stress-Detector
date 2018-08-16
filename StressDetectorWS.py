@@ -12,14 +12,32 @@ from flask import Flask
 from flask import Response
 from flask import jsonify
 from flask import request
+from flask import flash, request, redirect, url_for
 
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
 
 
+ALLOWED_EXTENSIONS = set(['wav', 'wave'])
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @app.route('/api/isunderstress', methods=["POST"])
 def isunderstress():
+    # check if the post request has the file part
+    if 'file' not in request.files:
+        response = Response(
+            mimetype="application/json",
+            status=400
+        )
+        return response
+    file = request.files['file']
+
     dat2 = request.get_json()
     dat2 = dat2[2:-2]
     dat1 = np.fromstring(dat2, dtype=int, sep=', ')
@@ -43,3 +61,4 @@ def isunderstress():
             status=200
         )
     return response
+
