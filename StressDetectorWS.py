@@ -51,28 +51,30 @@ def valid_file(request):
         return False
 
 
+def is_under_stress(filename):
+    rate1,dat1 = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
+    the_emd = emd.emd(dat1, extrapolation=None, nimfs=8, shifting_distance=0.2)
+    count_zeros = utils_stress_detector.get_zero_crossings(the_emd)
+    audio_time_length = len(dat1)/float(rate1)
+    stress_tremor_avg = count_zeros - 1
+    stress_tremor_avg = stress_tremor_avg/audio_time_length
+    under_stress = False
+    if stress_tremor_avg > 12:
+        under_stress = True
+    elif stress_tremor_avg < 8:
+        under_stress = True
+    return under_stress
+
+
 @app.route('/api/isunderstress', methods=["POST"])
 def isunderstress():
     # check if the post request has the file part
     if valid_file(request):
         random_file_name = "".join(choice(allchar) for x in range(randint(min_char, max_char)))
         filename = app.config['UPLOAD_FOLDER'] + "/" + random_file_name
-        file = request.files['file']
-        file.save(filename)
-        rate1,dat1 = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
+        file = request.files['file'].save(filename)
+        under_stress = is_under_stress(filename)
         os.remove(filename)
-        the_emd = emd.emd(dat1, extrapolation=None, nimfs=8, shifting_distance=0.2)
-        count_zeros = utils_stress_detector.get_zero_crossings(the_emd)
-        audio_time_length = len(dat1)/float(rate1)
-
-        stress_tremor_avg = count_zeros - 1
-        stress_tremor_avg = stress_tremor_avg/audio_time_length
-        under_stress = False
-        if stress_tremor_avg > 12:
-            under_stress = True
-        elif stress_tremor_avg < 8:
-            under_stress = True
-
         output = {'under_stress':under_stress}
         response = Response(
             mimetype="application/json",
