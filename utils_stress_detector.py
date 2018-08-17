@@ -86,5 +86,5 @@ def get_input_file_from_argv(argv):
         # file does NOT exist
         print('File does NOT exist, will exit')
         sys.exit(2)
-    input_file = os.path.dirname(os.path.realpath(__file__)) + input_file
+    input_file = os.path.dirname(os.path.realpath(__file__)) + "/" + input_file
     return input_file
