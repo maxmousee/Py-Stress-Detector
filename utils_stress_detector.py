@@ -20,13 +20,8 @@ def get_audio_data_from_file_absolute_path(input_file):
     return wavfile.read(input_file, True)
 
 
-def get_audio_data_from_file(input_file):
-    return wavfile.read(os.getcwd() + "/" + input_file, True)
-
-
 def extract_emd(dat1):
-    the_emd = emd.emd(dat1, extrapolation=None, nimfs=8, shifting_distance=0.2)
-    return the_emd
+    return emd.emd(dat1, extrapolation=None, nimfs=8, shifting_distance=0.2)
 
 
 def extract_data(myemd, imf_count):
@@ -62,7 +57,16 @@ def get_stress_tremor_average_from_data(the_data, rate1):
     return stress_tremor_avg
 
 
-def get_audio_file(argv):
+def is_under_stress(stress_tremor_avg):
+    under_stress = False
+    if stress_tremor_avg > 12:
+        under_stress = True
+    elif stress_tremor_avg < 8:
+        under_stress = True
+    return under_stress
+
+
+def get_input_file_from_argv(argv):
     input_file = ''
 
     try:
@@ -82,4 +86,5 @@ def get_audio_file(argv):
         # file does NOT exist
         print('File does NOT exist, will exit')
         sys.exit(2)
+    input_file = os.path.dirname(os.path.realpath(__file__)) + input_file
     return input_file

@@ -54,12 +54,7 @@ def valid_file(request):
 def is_under_stress(filename):
     samplerate,audiodata = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
     stress_tremor_avg = utils_stress_detector.get_stress_tremor_average_from_data(audiodata, samplerate)
-    under_stress = False
-    if stress_tremor_avg > 12:
-        under_stress = True
-    elif stress_tremor_avg < 8:
-        under_stress = True
-    return under_stress
+    return utils_stress_detector.is_under_stress(stress_tremor_avg)
 
 
 def get_invalid_file_response():
