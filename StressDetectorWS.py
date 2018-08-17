@@ -41,7 +41,7 @@ def allowed_file(filename):
 
 
 def valid_file(request):
-# check if the post request has the file part
+# check if the post request has a valid file
     if 'file' not in request.files:
         return False
     file = request.files['file']
@@ -68,7 +68,6 @@ def is_under_stress(filename):
 
 @app.route('/api/isunderstress', methods=["POST"])
 def isunderstress():
-    # check if the post request has the file part
     if valid_file(request):
         random_file_name = "".join(choice(allchar) for x in range(randint(min_char, max_char)))
         filename = app.config['UPLOAD_FOLDER'] + "/" + random_file_name
