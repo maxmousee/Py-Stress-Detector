@@ -67,7 +67,7 @@ def isunderstress():
     if valid_file(request):
         random_file_name = "".join(choice(allchar) for x in range(randint(min_char, max_char)))
         filename = app.config['UPLOAD_FOLDER'] + "/" + random_file_name
-        file = request.files['file'].save(filename)
+        request.files['file'].save(filename)
         under_stress = is_under_stress(filename)
         os.remove(filename)
         output = {'under_stress':under_stress}
