@@ -40,21 +40,24 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def valid_file(request):
+# check if the post request has the file part
+    if 'file' not in request.files:
+        return False
+    file = request.files['file']
+    if file and allowed_file(file.filename):
+        return True
+    else:
+        return False
+
+
 @app.route('/api/isunderstress', methods=["POST"])
 def isunderstress():
     # check if the post request has the file part
-    if 'file' not in request.files:
-        output = {'error':'No file provided'}
-        response = Response(
-            mimetype="application/json",
-            response=json.dumps(output),
-            status=400
-        )
-        return response
-    file = request.files['file']
-    if file and allowed_file(file.filename):
+    if valid_file(request):
         random_file_name = "".join(choice(allchar) for x in range(randint(min_char, max_char)))
         filename = app.config['UPLOAD_FOLDER'] + "/" + random_file_name
+        file = request.files['file']
         file.save(filename)
         rate1,dat1 = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
         os.remove(filename)
@@ -75,6 +78,14 @@ def isunderstress():
             mimetype="application/json",
             response=json.dumps(output),
             status=200
+        )
+        return response
+    else:
+        output = {'error':'No valid file provided'}
+        response = Response(
+            mimetype="application/json",
+            response=json.dumps(output),
+            status=400
         )
         return response
 
