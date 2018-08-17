@@ -41,4 +41,9 @@ To run it just go to the folder and type "python3 StressDetectorDesktop.py -i <i
 It will verify stress level for the input file passed by argument. Feel free to change the code to check for other files.
 It should print the graph of the stress data as well.
 
+If you want to run it inside the docker container, just run:
+"docker exec -it <containerIdOrName> bash"
+then
+Run it as it was in your local machine... python3 StressDetectorDesktop.py...
+
 ## Tested only with 8000KHz sample rate WAV files

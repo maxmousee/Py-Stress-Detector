@@ -56,8 +56,7 @@ def isunderstress():
         random_file_name = "".join(choice(allchar) for x in range(randint(min_char, max_char)))
         filename = app.config['UPLOAD_FOLDER'] + "/" + random_file_name
         file.save(filename)
-        dat1 = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
-        rate1 = utils_stress_detector.get_audio_sample_rate_from_file_absolute_path(filename)
+        rate1,dat1 = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
         os.remove(filename)
         the_emd = emd.emd(dat1, extrapolation=None, nimfs=8, shifting_distance=0.2)
         count_zeros = utils_stress_detector.get_zero_crossings(the_emd)
