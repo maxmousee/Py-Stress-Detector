@@ -62,6 +62,26 @@ def is_under_stress(filename):
     return under_stress
 
 
+def get_invalid_file_response():
+    output = {'error':'No valid file provided'}
+    response = Response(
+        mimetype="application/json",
+        response=json.dumps(output),
+        status=400
+    )
+    return response
+
+
+def get_stress_response(under_stress):
+    output = {'under_stress':under_stress}
+    response = Response(
+        mimetype="application/json",
+        response=json.dumps(output),
+        status=200
+    )
+    return response
+
+
 @app.route('/api/isunderstress', methods=["POST"])
 def isunderstress():
     if valid_file(request):
@@ -70,19 +90,7 @@ def isunderstress():
         request.files['file'].save(filename)
         under_stress = is_under_stress(filename)
         os.remove(filename)
-        output = {'under_stress':under_stress}
-        response = Response(
-            mimetype="application/json",
-            response=json.dumps(output),
-            status=200
-        )
-        return response
+        return get_stress_response(under_stress)
     else:
-        output = {'error':'No valid file provided'}
-        response = Response(
-            mimetype="application/json",
-            response=json.dumps(output),
-            status=400
-        )
-        return response
+        return get_invalid_file_response()
 
