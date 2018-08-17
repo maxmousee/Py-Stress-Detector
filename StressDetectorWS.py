@@ -52,12 +52,8 @@ def valid_file(request):
 
 
 def is_under_stress(filename):
-    rate1,dat1 = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
-    the_emd = emd.emd(dat1, extrapolation=None, nimfs=8, shifting_distance=0.2)
-    count_zeros = utils_stress_detector.get_zero_crossings(the_emd)
-    audio_time_length = len(dat1)/float(rate1)
-    stress_tremor_avg = count_zeros - 1
-    stress_tremor_avg = stress_tremor_avg/audio_time_length
+    samplerate,audiodata = utils_stress_detector.get_audio_data_from_file_absolute_path(filename)
+    stress_tremor_avg = utils_stress_detector.get_stress_tremor_average_from_data(audiodata, samplerate)
     under_stress = False
     if stress_tremor_avg > 12:
         under_stress = True
