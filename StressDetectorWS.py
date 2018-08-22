@@ -7,13 +7,11 @@ For information on how to run and how to do a sample request, check README file
 import emd
 import json
 import os
-import numpy as np
 import utils_stress_detector
 from flask import Flask
 from flask import Response
 from flask import jsonify
 from flask import request
-from flask import flash, request, redirect, url_for
 import string
 from random import *
 
