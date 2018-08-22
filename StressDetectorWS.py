@@ -10,7 +10,6 @@ import os
 import utils_stress_detector
 from flask import Flask
 from flask import Response
-from flask import jsonify
 from flask import request
 import string
 from random import *
