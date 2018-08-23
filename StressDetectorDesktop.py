@@ -1,4 +1,5 @@
 """
+StressDetector Desktop main class, using Python3
 For information on how to run, check README file
 @author: MaxMouse
 """

@@ -1,5 +1,5 @@
 """
-StressDetector WebService class, using Python3 and Flask
+StressDetector WebService main class, using Python3 and Flask
 For information on how to run and how to do a sample request, check README file
 @author: MaxMouse
 """
