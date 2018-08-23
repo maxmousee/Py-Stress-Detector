@@ -4,15 +4,15 @@ For information on how to run and how to do a sample request, check README file
 @author: MaxMouse
 """
 
+import utils_stress_detector
 import emd
 import json
 import os
-import utils_stress_detector
+import string
 from flask import Flask
 from flask import Response
 from flask import request
-import string
-from random import *
+from random import random, randint, choice
 
 
 ALLOWED_EXTENSIONS = set(['wav', 'wave'])
