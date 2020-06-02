@@ -49,6 +49,7 @@ def get_zero_crossings(the_emd):
 
 def get_stress_tremor_average_from_data(the_data, rate1):
     the_emd = extract_emd(the_data)
+    #plot_data(the_emd)
     count_zeros = get_zero_crossings(the_emd)
     audio_time_length = len(the_data)/float(rate1)
 

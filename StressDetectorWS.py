@@ -5,14 +5,13 @@ For information on how to run and how to do a sample request, check README file
 """
 
 import utils_stress_detector
-import emd
 import json
 import os
 import string
 from flask import Flask
 from flask import Response
 from flask import request
-from random import random, randint, choice
+from random import randint, choice
 
 
 ALLOWED_EXTENSIONS = set(['wav', 'wave'])

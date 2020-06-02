@@ -1,9 +1,9 @@
-FROM python:3.6
+FROM python:3.8
 EXPOSE 5000
 
 
 COPY requirements.txt /
-RUN pip install -r requirements.txt --user
+RUN python3 -m pip install -r requirements.txt --user
 
 COPY rain_man_driver_8000.wav /
 COPY utils_stress_detector.py /

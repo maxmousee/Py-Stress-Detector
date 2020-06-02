@@ -12,9 +12,9 @@ To do that, run:
 "sudo apt-get install -y python3-pip libfreetype6-dev libfreetype6 libpng-dev curl pkg-config"
 
 If you are using MacOS, install brew and then run the following commands:
-"brew install freetype; brew install pkg-config; brew install libpng" 
+"brew install freetype; brew install pkg-config; brew install libpng"
 
-Using Python 3, run "pip -r requirements.txt --user" without the quotes
+Using Python 3, run "python3 -m pip -r requirements.txt --user" without the quotes
 
 # WebService
 

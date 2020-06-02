@@ -10,10 +10,14 @@
 Utility functions used to inspect EMD functionality.
 """
 
-from matplotlib.mlab import find
 import numpy as np
 from scipy.signal import argrelmax, argrelmin
 from scipy import interpolate
+
+
+def find(condition):
+    res, = np.nonzero(np.ravel(condition))
+    return res
 
 
 def boundary_conditions(x, t, z=None, nbsym=2):
