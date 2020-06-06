@@ -25,7 +25,7 @@ To run unit and functional tests, just run "pytest".
 To run it just go to the folder and type "export FLASK_APP=StressDetectorWS.py; python3 -m flask run" without the quotes
 It will run as a http service listening to port 5000
 
-To send a test request just run "curl -F "file=@rain_man_driver_8000.wav" http://localhost:5000/api/isunderstress"
+### If you prefer to run it using docker, here is how:
 
 Build docker image:
 "docker build -t py-stress-detector:latest ."
@@ -38,6 +38,8 @@ Check if container is running:
 
 Kill (all) docker images:
 "docker kill $(docker ps -q)"
+
+#### To send a test request just run "curl -F "file=@rain_man_driver_8000.wav" http://localhost:5000/api/isunderstress"
 
 # Desktop
 
