@@ -16,9 +16,9 @@ If you are using MacOS, install brew and then run the following commands:
 
 Using Python 3, run "python3 -m pip -r requirements.txt --user" without the quotes
 
-# Run unit tests
+# Run tests
 
-To run the unit tests, just run "python3 test_utils_stress_detector.py", or just run the docker image.
+To run unit and functional tests, just run "pytest".
 
 # WebService
 

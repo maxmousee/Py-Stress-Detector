@@ -14,7 +14,7 @@ from flask import request
 from random import randint, choice
 
 
-ALLOWED_EXTENSIONS = set(['wav', 'wave'])
+ALLOWED_EXTENSIONS = {'wav', 'wave'}
 
 
 app = Flask(__name__)

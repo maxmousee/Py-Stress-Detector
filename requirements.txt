@@ -1,5 +1,6 @@
 cairocffi==1.1.0
 matplotlib==3.2.1
-numpy==1.18.0
+numpy==1.18.5
 scipy==1.4.1
 flask==1.1.2
+pytest==5.4.3
