@@ -11,6 +11,10 @@ COPY utils.py /
 COPY emd.py /
 COPY StressDetectorWS.py /
 COPY StressDetectorDesktop.py /
+COPY test_utils_stress_detector.py /
+
+
+RUN python3 test_utils_stress_detector.py
 
 
 ENV FLASK_APP StressDetectorWS.py

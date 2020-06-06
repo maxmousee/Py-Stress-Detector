@@ -83,9 +83,8 @@ def get_input_file_from_argv(argv):
        elif opt in ("-i", "--ifile"):
            input_file = arg
 
-    if not os.path.isfile(os.getcwd() + "/" + input_file):
+    if not os.path.isfile(input_file):
         # file does NOT exist
         print('File does NOT exist, will exit')
         sys.exit(2)
-    input_file = os.path.dirname(os.path.realpath(__file__)) + "/" + input_file
     return input_file

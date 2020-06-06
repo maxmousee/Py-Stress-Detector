@@ -16,6 +16,10 @@ If you are using MacOS, install brew and then run the following commands:
 
 Using Python 3, run "python3 -m pip -r requirements.txt --user" without the quotes
 
+# Run unit tests
+
+To run the unit tests, just run "python3 test_utils_stress_detector.py", or just run the docker image.
+
 # WebService
 
 To run it just go to the folder and type "export FLASK_APP=StressDetectorWS.py; python3 -m flask run" without the quotes

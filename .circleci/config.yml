@@ -28,6 +28,12 @@ jobs:
 
       # run tests!
       - run:
+          name: run unit tests
+          command: |
+            python3 test_utils_stress_detector.py
+
+      # run tests!
+      - run:
           name: run tests for Desktop
           command: |
             python3 StressDetectorDesktop.py -i rain_man_driver_8000.wav
