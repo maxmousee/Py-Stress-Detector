@@ -44,8 +44,7 @@ Kill (all) docker images:
 # Desktop
 
 To run it just go to the folder and type "python3 StressDetectorDesktop.py -i inputfile" without the quotes
-It will verify stress level for the input file passed by argument. Feel free to change the code to check for other files.
-It should print the graph of the stress data as well.
+It will verify stress level for the input file passed by argument.
 
 If you want to run it inside the docker container, just run:
 "docker exec -it containerIdOrName bash"
