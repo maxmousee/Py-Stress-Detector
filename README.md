@@ -14,7 +14,11 @@ To do that, run:
 If you are using MacOS, install brew and then run the following commands:
 "brew install freetype; brew install pkg-config; brew install libpng"
 
-Using Python 3, run "python3 -m pip -r requirements.txt --user" without the quotes
+Using Python 3, run "pip3 -r requirements.txt --user" without the quotes
+
+If you're using a Mac with Apple Silicon, you might need to install a nightly build of scipy
+
+"pip3 install --pre -i https://pypi.anaconda.org/scipy-wheels-nightly/simple scipy"
 
 # Run tests
 
