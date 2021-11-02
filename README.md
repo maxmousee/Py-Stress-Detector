@@ -1,6 +1,6 @@
 # Stress Detector
 
-[![CI Status](https://circleci.com/gh/maxmousee/Py-Stress-Detector.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/maxmousee/Py-Stress-Detector)
+[![CircleCI](https://circleci.com/gh/maxmousee/Py-Stress-Detector/tree/master.svg?style=svg)](https://circleci.com/gh/maxmousee/Py-Stress-Detector/tree/master)
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/maxmousee/Py-Stress-Detector?branch=master)](https://bettercodehub.com/)
 
