@@ -2,8 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/maxmousee/Py-Stress-Detector/tree/master.svg?style=svg)](https://circleci.com/gh/maxmousee/Py-Stress-Detector/tree/master)
 
-[![BCH compliance](https://bettercodehub.com/edge/badge/maxmousee/Py-Stress-Detector?branch=master)](https://bettercodehub.com/)
-
 # Install dependencies
 
 If you are using Ubuntu, you will need to install the following packages:

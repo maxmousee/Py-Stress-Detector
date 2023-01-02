@@ -32,11 +32,11 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def valid_file(request):
+def valid_file_from_request(post_request):
     # check if the post request has a valid file
-    if 'file' not in request.files:
+    if 'file' not in post_request.files:
         return False
-    file = request.files['file']
+    file = post_request.files['file']
     if file and allowed_file(file.filename):
         return True
     else:
@@ -71,7 +71,7 @@ def get_stress_response(under_stress):
 
 @app.route('/api/isunderstress', methods=["POST"])
 def is_under_stress():
-    if valid_file(request):
+    if valid_file_from_request(request):
         random_file_name = "".join(choice(all_char) for x in range(randint(min_char, max_char)))
         filename = app.config['UPLOAD_FOLDER'] + "/" + random_file_name
         request.files['file'].save(filename)
